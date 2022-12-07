@@ -1,6 +1,6 @@
 # Ordinal-Regression-for-Beef-Grade-Classification
 PyTorch Code for the paper:  
-[ICCE2023](https://icce.org/2023/Home.html) accepted. (will be posted soon)  
+[ICCE2023](https://icce.org/2023/Home.html) accepted. (It will be posted soon...)  
 
 
 ## Installation
@@ -12,7 +12,32 @@ PyTorch Code for the paper:
 Details are specified in [requirements.txt](requirements.txt).
 
 ## Training
-See [TRAINING.md](TRAINING.MD) for training.
+
+We provide ordinal regression learning, hard label learning, and Gaussian-based label distribution learning.  
+You can change the learning method by changing `--criterion` that has `['CE', 'GLD', 'OR']`.
+
+The code below is an example of training using ordinal regression.   
+```
+CUDA_VISIBLE_DEVICES=0 python3 main_reverse.py --model convnext_base_in22ft1k \
+                                              --input_size 224 \
+                                              --data_set image_folder \
+                                              --data_path [path_to_train_dataset]   \
+                                              --eval_data_path [path_to_test_dataset]    \
+                                              --epochs 20 \
+                                              --warmup_epochs 0 \
+                                              --save_ckpt true \
+                                              --cutmix 0 \
+                                              --mixup 0 \
+                                              --smoothing 0.1 \
+                                              --project beef \
+                                              --color_jitter 0.1 \
+                                              --use_amp True \
+                                              --batch_size 256 \
+                                              --enable_wandb True \
+                                              --drop_path 0.2 \
+                                              --update_freq 2 \
+                                              --criterion OR
+```
 
 ## Evaluation
 Due to the limitation of GPU resources, we needed to store the predicted vectors in memory and then use them in ensemble learning.
