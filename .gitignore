@@ -1,0 +1,11 @@
+__pycache__/
+.history/
+log/
+data/
+
+*.csv
+*.ipynb
+*.sh
+*temp*
+
+eval*.py
