@@ -1,6 +1,7 @@
 # Ordinal-Regression-for-Beef-Grade-Classification
 PyTorch Code for the paper:  
-[ICCE2023](https://icce.org/2023/Home.html) accepted. (It will be posted soon...)  
+"[Ordinal Regression for Beef Grade Classification](https://ieeexplore.ieee.org/abstract/document/10043530)", ICCE 2023.  
+Chaehyeon Lee, Jiuk Hong, Jonghyuck Lee, Taehoon Choi and Heechul Jung. 
 
 
 ## Installation
